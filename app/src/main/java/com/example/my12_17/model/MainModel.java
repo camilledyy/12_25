@@ -1,18 +1,20 @@
 package com.example.my12_17.model;
 
-import com.example.my12_17.api.URLService;
-import com.example.my12_17.interfaces.ICallBack;
+
+import com.example.mvplibrary.api.ICallBack;
+import com.example.mvplibrary.api.URLService;
+import com.example.mvplibrary.api.net.RetroitUtils;
 import com.example.my12_17.interfaces.MainInterface;
-import com.example.my12_17.net.RetroitUtils;
 
 public class MainModel implements MainInterface.Model {
     @Override
-    public <T> void requestnews(String url, ICallBack<T> callBack) {
-        RetroitUtils.getInstance().get(URLService.New_list,callBack);
+    public <T> void requestHome(String url, ICallBack<T> callBack) {
+        RetroitUtils.getInstance().get(URLService.Home_list,callBack);
     }
 
-    @Override
-    public <T> void requestbanner(String url, ICallBack<T> callBack) {
-        RetroitUtils.getInstance().get(URLService.Banner_list,callBack);
-    }
+
+//    @Override
+//    public <T> void requestbanner(String url, ICallBack<T> callBack) {
+//        RetroitUtils.getInstance().get(URLService.Banner_list,callBack);
+//    }
 }

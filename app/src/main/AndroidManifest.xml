@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.my12_17">
-<uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 允许程序访问WiFi网络信息 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +9,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My12_17">
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.one.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <activity android:name=".view.ShareActivity">
+
+        </activity>
+        <activity android:name=".view.VLaoutActivity"></activity>
+
+        <activity android:name=".view.MapActivity" />
+
+        <activity android:name=".view.MainActivity" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7952c699f71d2aae4dcc1e4da9d42383" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.my12_17.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>
