@@ -10,7 +10,6 @@ public interface MainInterface {
     interface View extends BaseView {
 //        void getNews(NewBean newBean);
         void getHome(HomeBean homeBean);
-
     }
 
     interface Presenter{

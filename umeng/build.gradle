@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.umeng"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders=[qqappid:"101921359"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation files('libs\\umeng-share-core-7.1.3.jar')
+    implementation files('libs\\umeng-sharetool-7.1.3.jar')
+    implementation files('libs\\umeng-share-sina-full-7.1.3.jar')
+    implementation files('libs\\umeng-shareboard-widget-7.1.3.jar')
+    implementation files('libs\\umeng-share-QQ-simplify-7.1.3.jar')
+    implementation files('libs\\umeng-share-QQ-simplify-7.1.3.jar')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "com.umeng.umsdk:common:9.1.0"
+    implementation "com.umeng.umsdk:asms:1.1.3" // asms包依赖(必选)
+    implementation "com.umeng.umsdk:crash:0.0.4" // native crash包依赖(必选)
+
+    implementation  'com.umeng.umsdk:share-qq:7.1.3'
+    implementation  'com.umeng.umsdk:share-sina:7.1.3'
+    implementation 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'
+    implementation files('libs/umeng-share-sina-full-7.1.3.jar')
+    implementation  'com.umeng.umsdk:share-sina:7.1.3'
+}
