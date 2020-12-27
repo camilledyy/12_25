@@ -22,6 +22,7 @@ import com.example.my12_17.vlayoutadapter.GridLayoutAdapter_six;
 import com.example.my12_17.vlayoutadapter.GridLayoutAdapter_two;
 import com.example.my12_17.vlayoutadapter.GridLayoutHelperAdapter_five;
 import com.example.my12_17.vlayoutadapter.GridLayoutHelperAdapter_three;
+import com.example.my12_17.vlayoutadapter.GridSerachLayoutAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -151,7 +152,12 @@ public class HomeFragment extends BaseFragment<MainPresenter> implements MainInt
 
         return gridCategoryAdapter;
     }
-    
+
+    private DelegateAdapter.Adapter initSerach(){
+        GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(1);
+        GridSerachLayoutAdapter gridSerachLayoutAdapter = new GridSerachLayoutAdapter(gridLayoutHelper, getActivity());
+        return gridSerachLayoutAdapter;
+    }
 
     @Override
     protected MainPresenter getPresenter() {
@@ -180,7 +186,7 @@ public class HomeFragment extends BaseFragment<MainPresenter> implements MainInt
 
 
 
-
+        adapter.addAdapter(initSerach());
         adapter.addAdapter(gridLayoutAdapter_six);
         adapter.addAdapter(gridLayoutHelperAdapter_three);
         adapter.addAdapter(initTitle("品牌制造商直供"));
